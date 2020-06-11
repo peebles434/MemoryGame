@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "./Card";
-import { makeStyles, Paper, Grid } from "@material-ui/core";
+import { makeStyles, Grid } from "@material-ui/core";
 import "../App.css";
 import { importedCatCards } from "../utils/CardPictures/importedCatCards";
 
@@ -30,7 +30,6 @@ export const CardDisplay = () => {
   }
 
   const deck = shuffle(importedCatCards);
-  console.log(deck);
 
   return (
     <div className="cardContainer">

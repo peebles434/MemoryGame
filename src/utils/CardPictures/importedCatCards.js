@@ -1,4 +1,19 @@
-import { cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8 } from "./Cats";
+import {
+  cat1,
+  cat2,
+  cat3,
+  cat4,
+  cat5,
+  cat6,
+  cat7,
+  cat8,
+  questionMark,
+} from "./Cats";
+
+export const cardBack = {
+  id: "cardBack",
+  image: questionMark,
+};
 
 export const importedCatCards = [
   {

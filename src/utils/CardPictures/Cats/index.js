@@ -6,3 +6,4 @@ export const cat5 = require("./cat5.jpg");
 export const cat6 = require("./cat6.jpg");
 export const cat7 = require("./cat7.jpg");
 export const cat8 = require("./cat8.jpg");
+export const questionMark = require("./questionMark.jpg");

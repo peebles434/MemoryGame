@@ -8,6 +8,11 @@
   width: 8rem;
 }
 
+.cardImages:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
 .imageContainer {
   text-align: center;
 }
