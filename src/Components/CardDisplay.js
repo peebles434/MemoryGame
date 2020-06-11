@@ -30,6 +30,7 @@ export const CardDisplay = () => {
   }
 
   const deck = shuffle(importedCatCards);
+  console.log(deck);
 
   return (
     <div className="cardContainer">
