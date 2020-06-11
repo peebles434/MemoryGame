@@ -1,4 +1,13 @@
 .cardContainer {
-  max-width: 60rem;
+  max-width: 40rem;
+  max-height: 40rem;
   margin: 2rem auto;
+}
+
+.cardImages {
+  width: 8rem;
+}
+
+.imageContainer {
+  text-align: center;
 }
