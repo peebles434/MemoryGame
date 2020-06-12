@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { observer } from "mobx-react";
 
-export const Stopwatch = () => {
+export const Stopwatch = observer(() => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
@@ -42,4 +43,4 @@ export const Stopwatch = () => {
       </div>
     </div>
   );
-};
+});

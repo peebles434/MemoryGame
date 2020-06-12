@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react";
 import { cardBack } from "../utils/CardPictures/importedCatCards";
 import { useGameStore } from "../Stores/GameStore/GameStore";
@@ -31,7 +31,6 @@ export const Card = observer(({ card }) => {
       setClicked(!clicked);
       setCurrentChoice(true);
       selectFirstCard(card.id);
-      console.log("yass one");
     } else if (
       isFirstCardClicked === true &&
       clicked === false &&
@@ -40,28 +39,29 @@ export const Card = observer(({ card }) => {
       setClicked(!clicked);
       setCurrentChoice(true);
       selectSecondCard(card.id);
-      console.log("yas two");
     }
   };
-
-  if (
-    firstCardId === secondCardId &&
-    secondCardId !== null &&
-    currentChoice === true
-  ) {
-    setCurrentChoice(false);
-    setCorrectAnswer(true);
-    resetSelectedCards();
-    console.log("correct");
-  } else if (
-    firstCardId !== secondCardId &&
-    secondCardId !== null &&
-    currentChoice === true
-  ) {
-    setCurrentChoice(false);
-    resetSelectedCards();
-    console.log("incorrect");
-  }
+  useEffect(() => {
+    if (
+      firstCardId === secondCardId &&
+      secondCardId !== null &&
+      currentChoice === true
+    ) {
+      setCurrentChoice(false);
+      setCorrectAnswer(true);
+      resetSelectedCards();
+      console.log("correct");
+    } else if (
+      firstCardId !== secondCardId &&
+      secondCardId !== null &&
+      currentChoice === true
+    ) {
+      setCurrentChoice(false);
+      resetSelectedCards();
+      setTimeout(() => setClicked(!clicked), 500);
+      console.log("incorrect");
+    }
+  });
 
   return (
     <div className="imageContainer">

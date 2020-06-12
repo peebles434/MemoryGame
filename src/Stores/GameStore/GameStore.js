@@ -10,6 +10,7 @@ export const GameStore = types
     isFirstCardClicked: types.boolean,
     firstCardId: types.maybeNull(types.string),
     secondCardId: types.maybeNull(types.string),
+    correctCounter: types.number,
   })
   .volatile((self) => ({}))
   .views((self) => ({}))

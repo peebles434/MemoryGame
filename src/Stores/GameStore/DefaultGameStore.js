@@ -3,4 +3,5 @@ export const DefaultGameStore = {
   isFirstCardClicked: false,
   firstCardId: null,
   secondCardId: null,
+  correctCounter: 0,
 };

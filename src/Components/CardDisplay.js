@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react";
 import { Card } from "./Card";
 import { makeStyles, Grid } from "@material-ui/core";
 import "../App.css";
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const CardDisplay = () => {
+export const CardDisplay = observer(() => {
   const classes = useStyles();
 
   function shuffle(a) {
@@ -30,7 +31,6 @@ export const CardDisplay = () => {
   }
 
   const deck = shuffle(importedCatCards);
-  console.log(deck);
 
   return (
     <div className="cardContainer">
@@ -88,4 +88,4 @@ export const CardDisplay = () => {
       </div>
     </div>
   );
-};
+});
