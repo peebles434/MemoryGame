@@ -1,5 +1,5 @@
 import React from "react";
-import { MemoryGame } from "./Components/MemoryGame";
+import { MemoryGameApp } from "./Components/MemoryGameApp";
 import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
 import "./App.css";
 
@@ -13,7 +13,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <MemoryGame />
+      <MemoryGameApp />
     </ThemeProvider>
   );
 }

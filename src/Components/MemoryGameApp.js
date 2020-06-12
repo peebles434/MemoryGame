@@ -1,9 +1,10 @@
 import React from "react";
+import { observer } from "mobx-react";
 import { Header } from "./Header";
 import { GameDisplay } from "./GameDisplay";
 import { CardDisplay } from "./CardDisplay";
 
-export const MemoryGame = () => {
+export const MemoryGameApp = observer(() => {
   return (
     <div>
       <Header />
@@ -11,4 +12,4 @@ export const MemoryGame = () => {
       <CardDisplay />
     </div>
   );
-};
+});

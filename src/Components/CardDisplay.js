@@ -37,52 +37,52 @@ export const CardDisplay = () => {
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={3}>
-            <Card card={deck[0].image} />
+            <Card card={deck[0]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[1].image} />
+            <Card card={deck[1]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[2].image} />
+            <Card card={deck[2]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[3].image} />
+            <Card card={deck[3]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[4].image} />
+            <Card card={deck[4]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[5].image} />
+            <Card card={deck[5]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[6].image} />
+            <Card card={deck[6]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[7].image} />
+            <Card card={deck[7]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[8].image} />
+            <Card card={deck[8]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[9].image} />
+            <Card card={deck[9]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[10].image} />
+            <Card card={deck[10]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[11].image} />
+            <Card card={deck[11]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[12].image} />
+            <Card card={deck[12]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[13].image} />
+            <Card card={deck[13]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[14].image} />
+            <Card card={deck[14]} />
           </Grid>
           <Grid item xs={3}>
-            <Card card={deck[15].image} />
+            <Card card={deck[15]} />
           </Grid>
         </Grid>
       </div>
