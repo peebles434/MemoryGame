@@ -8,6 +8,8 @@ import {
   IconButton,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
+
+const theme = createMuiTheme({});
 
 export const Header = () => {
   const classes = useStyles();

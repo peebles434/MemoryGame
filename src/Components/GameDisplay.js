@@ -5,6 +5,7 @@ import { Button } from "@material-ui/core";
 
 export const GameDisplay = observer(() => {
   // TODO: create restart handler that doesn't rely on page refresh
+  // TODO: add "areWeRestarting" key-value to mobx that will be read by card component to fire setstate calls to false
   const tempRestartHandler = () => {
     window.location.reload();
   };
