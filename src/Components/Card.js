@@ -21,9 +21,11 @@ export const Card = observer(({ card }) => {
   } = useGameStore();
 
   const clickHandler = () => {
+    // Starts game when a card is clicked
     if (isGameStarted === false) {
       startGame();
     }
+    // Flips first card in click pair if it isn't already flipped
     if (
       isFirstCardClicked === false &&
       clicked === false &&
@@ -32,7 +34,9 @@ export const Card = observer(({ card }) => {
       setClicked(!clicked);
       setCurrentChoice(true);
       selectFirstCard(card.id);
-    } else if (
+    }
+    // Clicks second card if a first card is already flipped
+    else if (
       isFirstCardClicked === true &&
       clicked === false &&
       correctAnswer === false
@@ -43,6 +47,7 @@ export const Card = observer(({ card }) => {
     }
   };
   useEffect(() => {
+    // Checks if two cards flipped match - doesn't flip back over
     if (
       firstCardId === secondCardId &&
       secondCardId !== null &&
@@ -52,7 +57,9 @@ export const Card = observer(({ card }) => {
       setCorrectAnswer(true);
       resetSelectedCards();
       increaseCorrectCounter();
-    } else if (
+    }
+    // Checks if two cards flipped don't match - flips back over in 0.5s
+    else if (
       firstCardId !== secondCardId &&
       secondCardId !== null &&
       currentChoice === true

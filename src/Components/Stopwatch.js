@@ -4,6 +4,7 @@ import { useGameStore } from "../Stores/hooks";
 
 export const Stopwatch = observer(() => {
   const [seconds, setSeconds] = useState(0);
+  const [roundedSeconds, setRoundedSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
   const {
@@ -48,17 +49,24 @@ export const Stopwatch = observer(() => {
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {
-        setSeconds((seconds) => seconds + 1);
-      }, 1000);
+        setSeconds((seconds) => seconds + 0.001);
+      }, 1);
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
   }, [isActive, seconds]);
 
+  useEffect(() => {
+    if (seconds > 0) {
+      let num = seconds.toFixed(3);
+      setRoundedSeconds(num);
+    }
+  });
+
   return (
     <div className="Stopwatch">
-      <h1 className="time">{seconds}s</h1>
+      <h1 className="time">{roundedSeconds}s</h1>
     </div>
   );
 });
