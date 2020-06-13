@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react";
+import { useGameStore } from "../Stores/hooks";
 
 export const Stopwatch = observer(() => {
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
+
+  const {
+    timerStarter,
+    handleTimerStarter,
+    timerEnder,
+    handleTimerEnder,
+    correctCounter,
+    resetCorrectCounter,
+  } = useGameStore();
 
   function toggle() {
     setIsActive(!isActive);
@@ -12,6 +22,27 @@ export const Stopwatch = observer(() => {
     setSeconds(0);
     setIsActive(false);
   }
+
+  useEffect(() => {
+    if (timerStarter) {
+      toggle();
+      handleTimerStarter();
+    }
+  });
+
+  useEffect(() => {
+    if (timerEnder) {
+      toggle();
+      handleTimerEnder();
+    }
+  });
+
+  useEffect(() => {
+    if (correctCounter === 16) {
+      toggle();
+      resetCorrectCounter();
+    }
+  });
 
   useEffect(() => {
     let interval = null;
@@ -27,20 +58,7 @@ export const Stopwatch = observer(() => {
 
   return (
     <div className="Stopwatch">
-      <div className="time">{seconds}s</div>
-      <div className="row">
-        <button
-          className={`button button-primary button-primary-${
-            isActive ? "active" : "inactive"
-          }`}
-          onClick={toggle}
-        >
-          {isActive ? "Pause" : "Start"}
-        </button>
-        <button className="button" onClick={reset}>
-          Reset
-        </button>
-      </div>
+      <h1 className="time">{seconds}s</h1>
     </div>
   );
 });

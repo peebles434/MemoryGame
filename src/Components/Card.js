@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react";
 import { cardBack } from "../utils/CardPictures/importedCatCards";
-import { useGameStore } from "../Stores/GameStore/GameStore";
+import { useGameStore } from "../Stores/hooks";
 
 export const Card = observer(({ card }) => {
   const [clicked, setClicked] = useState(false);
@@ -17,6 +17,7 @@ export const Card = observer(({ card }) => {
     firstCardId,
     secondCardId,
     resetSelectedCards,
+    increaseCorrectCounter,
   } = useGameStore();
 
   const clickHandler = () => {
@@ -50,7 +51,7 @@ export const Card = observer(({ card }) => {
       setCurrentChoice(false);
       setCorrectAnswer(true);
       resetSelectedCards();
-      console.log("correct");
+      increaseCorrectCounter();
     } else if (
       firstCardId !== secondCardId &&
       secondCardId !== null &&
@@ -59,7 +60,6 @@ export const Card = observer(({ card }) => {
       setCurrentChoice(false);
       resetSelectedCards();
       setTimeout(() => setClicked(!clicked), 500);
-      console.log("incorrect");
     }
   });
 
@@ -70,6 +70,7 @@ export const Card = observer(({ card }) => {
         src={clicked ? card.image : cardBack.image}
         alt=""
         onClick={clickHandler}
+        draggable="false"
       />
     </div>
   );
