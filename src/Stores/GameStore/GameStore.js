@@ -11,6 +11,7 @@ export const GameStore = types
     firstCardId: types.maybeNull(types.string),
     secondCardId: types.maybeNull(types.string),
     correctCounter: types.number,
+    isAnswerBeingChecked: types.boolean,
   })
   .volatile((self) => ({}))
   .views((self) => ({}))
@@ -43,6 +44,12 @@ export const GameStore = types
     selectSecondCard(value) {
       self.isFirstCardClicked = false;
       self.secondCardId = value;
+    },
+    startCheckingAnswer(value) {
+      self.isAnswerBeingChecked = true;
+    },
+    stopCheckingAnswer(value) {
+      self.isAnswerBeingChecked = false;
     },
     resetSelectedCards(value) {
       self.firstCardId = null;

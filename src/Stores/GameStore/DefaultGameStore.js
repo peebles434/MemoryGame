@@ -6,4 +6,5 @@ export const DefaultGameStore = {
   firstCardId: null,
   secondCardId: null,
   correctCounter: 0,
+  isAnswerBeingChecked: false,
 };

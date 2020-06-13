@@ -49,8 +49,8 @@ export const Stopwatch = observer(() => {
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {
-        setSeconds((seconds) => seconds + 0.001);
-      }, 1);
+        setSeconds((seconds) => seconds + 0.1);
+      }, 100);
     } else if (!isActive && seconds !== 0) {
       clearInterval(interval);
     }
@@ -59,7 +59,7 @@ export const Stopwatch = observer(() => {
 
   useEffect(() => {
     if (seconds > 0) {
-      let num = seconds.toFixed(3);
+      let num = seconds.toFixed(1);
       setRoundedSeconds(num);
     }
   });

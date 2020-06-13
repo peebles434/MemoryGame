@@ -18,6 +18,9 @@ export const Card = observer(({ card }) => {
     secondCardId,
     resetSelectedCards,
     increaseCorrectCounter,
+    startCheckingAnswer,
+    stopCheckingAnswer,
+    isAnswerBeingChecked,
   } = useGameStore();
 
   const clickHandler = () => {
@@ -29,7 +32,8 @@ export const Card = observer(({ card }) => {
     if (
       isFirstCardClicked === false &&
       clicked === false &&
-      correctAnswer === false
+      correctAnswer === false &&
+      isAnswerBeingChecked === false
     ) {
       setClicked(!clicked);
       setCurrentChoice(true);
@@ -66,7 +70,9 @@ export const Card = observer(({ card }) => {
     ) {
       setCurrentChoice(false);
       resetSelectedCards();
-      setTimeout(() => setClicked(!clicked), 500);
+      startCheckingAnswer();
+      setTimeout(() => setClicked(!clicked), 400);
+      setTimeout(() => stopCheckingAnswer(), 400);
     }
   });
 

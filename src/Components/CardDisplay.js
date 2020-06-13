@@ -33,7 +33,7 @@ export const CardDisplay = observer(() => {
   const deck = shuffle(importedCatCards);
 
   return (
-    <div className="cardContainer">
+    <div className="cardContainer noselect">
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={3}>
