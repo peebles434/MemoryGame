@@ -3,7 +3,7 @@ import { observer } from "mobx-react";
 import { Stopwatch } from "./Stopwatch";
 import { Button } from "@material-ui/core";
 
-export const GameDisplay = () => {
+export const GameDisplay = observer(() => {
   // TODO: create restart handler that doesn't rely on page refresh
   const tempRestartHandler = () => {
     window.location.reload();
@@ -21,4 +21,4 @@ export const GameDisplay = () => {
       </Button>
     </div>
   );
-};
+});
