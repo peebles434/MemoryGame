@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react";
-import { useGameStore } from "../Stores/hooks";
+import { useGameStore, useTimerStore } from "../Stores/hooks";
 
 export const Stopwatch = observer(() => {
   const [seconds, setSeconds] = useState(0);
   const [roundedSeconds, setRoundedSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
+  const { correctCounter, resetCorrectCounter } = useGameStore();
+
   const {
     timerStarter,
-    handleTimerStarter,
     timerEnder,
+    handleTimerStarter,
     handleTimerEnder,
-    correctCounter,
-    resetCorrectCounter,
-  } = useGameStore();
+  } = useTimerStore();
 
   function toggle() {
     setIsActive(!isActive);

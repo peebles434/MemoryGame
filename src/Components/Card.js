@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react";
 import { cardBack } from "../utils/CardPictures/importedCatCards";
 import { useGameStore } from "../Stores/hooks";
+import { useTimerStore } from "../Stores/hooks";
 
 export const Card = observer(({ card }) => {
   const [clicked, setClicked] = useState(false);
@@ -23,10 +24,13 @@ export const Card = observer(({ card }) => {
     isAnswerBeingChecked,
   } = useGameStore();
 
+  const { startTimer } = useTimerStore();
+
   const clickHandler = () => {
     // Starts game when a card is clicked
     if (isGameStarted === false) {
       startGame();
+      startTimer();
     }
     // Flips first card in click pair if it isn't already flipped
     if (
