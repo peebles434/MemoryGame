@@ -4,11 +4,11 @@ import { useMemo } from "react";
 import { DefaultGameStore } from "./GameStore/DefaultGameStore";
 import { DefaultTimerStore } from "./TimerStore/DefaultTimerStore";
 
-let _store;
+let _gameStore;
 export const useGameStore = () => {
   const store = useMemo(() => {
-    if (!_store) _store = GameStore.create(DefaultGameStore);
-    return _store;
+    if (!_gameStore) _gameStore = GameStore.create(DefaultGameStore);
+    return _gameStore;
   }, []);
   return store;
 };
