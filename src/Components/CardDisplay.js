@@ -4,6 +4,7 @@ import { Card } from "./Card";
 import { makeStyles, Grid } from "@material-ui/core";
 import "../App.css";
 import { importedCatCards } from "../utils/CardPictures/importedCatCards";
+import { importedDogCards } from "../utils/CardPictures/importedDogCards";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +26,7 @@ export const CardDisplay = observer(() => {
     return a;
   }
 
-  const deck = shuffle(importedCatCards);
+  const deck = shuffle(importedDogCards);
 
   return (
     <div className="cardContainer noselect">
