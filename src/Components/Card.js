@@ -78,7 +78,16 @@ export const Card = observer(({ card }) => {
       setTimeout(() => setClicked(!clicked), 400);
       setTimeout(() => stopCheckingAnswer(), 400);
     }
-  });
+  }, [
+    firstCardId,
+    secondCardId,
+    currentChoice,
+    resetSelectedCards,
+    increaseCorrectCounter,
+    startCheckingAnswer,
+    clicked,
+    stopCheckingAnswer,
+  ]);
 
   return (
     <div className="imageContainer">

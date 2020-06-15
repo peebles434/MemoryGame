@@ -6,7 +6,7 @@ import { CardDisplay } from "./CardDisplay";
 
 export const MemoryGameApp = observer(() => {
   return (
-    <div>
+    <div className="app">
       <Header />
       <GameDisplay />
       <CardDisplay />
