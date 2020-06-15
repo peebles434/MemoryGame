@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { observer } from "mobx-react";
 import { Card } from "./Card";
 import { makeStyles, Grid } from "@material-ui/core";
 import "../App.css";
 import { importedCatCards } from "../utils/CardPictures/importedCatCards";
+import { importedDogCards } from "../utils/CardPictures/importedDogCards";
+import { useSessionStore } from "../Stores/hooks";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const CardDisplay = observer(() => {
+  const { isCatMode } = useSessionStore();
+
   const classes = useStyles();
 
   function shuffle(a) {
@@ -25,7 +29,7 @@ export const CardDisplay = observer(() => {
     return a;
   }
 
-  const deck = shuffle(importedCatCards);
+  const deck = shuffle(isCatMode ? importedCatCards : importedDogCards);
 
   return (
     <div className="cardContainer noselect">
