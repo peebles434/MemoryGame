@@ -1,6 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { Stopwatch } from "./Stopwatch";
+import { CatDogSwitch } from "./CatDogSwitch";
 import { Button } from "@material-ui/core";
 
 export const GameDisplay = observer(() => {
@@ -11,6 +12,7 @@ export const GameDisplay = observer(() => {
   };
   return (
     <div className="gameDisplayBox noselect">
+      <CatDogSwitch />
       <Stopwatch />
       <Button
         className="restart"
